@@ -1,2 +1,2 @@
 #!/bin/bash
-DIR_PATH=$(dirname $path) echo $DIR_PATH
+/tmp/correction/5804724033327361636169340379650493123580_5/205/329361/0x00-shell_basics
