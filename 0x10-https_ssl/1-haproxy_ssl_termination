@@ -32,17 +32,16 @@ defaults
 	errorfile 502 /etc/haproxy/errors/502.http
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
-
 frontend http
         bind *:80
         http-request set-header X-Forwarded-Proto http
         default_backend www.nathanaelcheramlak.tech-backend
-
+    
 frontend www.nathanaelcheramlak.tech-https-frontend
     bind *:443 ssl crt /etc/letsencrypt/live/www.nathanaelcheramlak.tech/www.nathanaelcheramlak.tech.pem
     http-request set-header X-Forwarded-Proto https
     default_backend www.nathanaelcheramlak.tech-backend
-    
+
 backend www.nathanaelcheramlak.tech-backend
     balance roundrobin
     server 329361-web-01 54.173.136.134:80 check
