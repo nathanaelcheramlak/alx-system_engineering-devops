@@ -20,7 +20,7 @@ def recurse(subreddit, hot_list=[], after=None):
     u_agent = 'Mozilla/5.0'
 
     headers = {
-        'User-Agent': u_agent
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/KingFrosty7)"
     }
     params = {
         'after': after
