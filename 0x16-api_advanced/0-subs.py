@@ -4,10 +4,11 @@ Function that queries the Reddit API and returns
 the number of subscribers for a given subreddit.
 """
 import requests
+import sys
 
 
 def number_of_subscribers(subreddit):
-    """Returns the number of subscribers of a subreddit"""
+    """ Queries to Reddit API """
     u_agent = 'Mozilla/5.0'
 
     headers = {
@@ -15,11 +16,12 @@ def number_of_subscribers(subreddit):
     }
 
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    response = requests.get(url, headers=headers,  allow_redirects=False)
-    res = response.json()
-    if response.status_code != 200:
+    res = requests.get(url, headers=headers, allow_redirects=False)
+    if res.status_code != 200:
         return 0
-    if 'data' in res:
-        return res['data']['subscribers']
-    return 0
-
+    dic = res.json()
+    if 'data' not in dic:
+        return 0
+    if 'subscribers' not in dic.get('data'):
+        return 0
+    return res.json()['data']['subscribers']
