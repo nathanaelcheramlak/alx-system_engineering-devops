@@ -17,10 +17,10 @@ def add_title(lists, posts):
 
 def recurse(subreddit, hot_list=[], after=None):
     """Queries Reddit API"""
-    u_agent = 'Mozilla/5.0'
+    u_agent = 'Mozilla/5'
 
     headers = {
-        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/KingFrosty7)"
+        "User-Agent": u_agent
     }
     params = {
         'after': after
