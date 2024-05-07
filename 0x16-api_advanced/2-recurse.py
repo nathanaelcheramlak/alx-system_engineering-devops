@@ -4,6 +4,7 @@ Function that queries the Reddit API and prints
 the top hot posts of a subreddit
 """
 import requests
+import sys
 
 
 def add_title(lists, posts):
